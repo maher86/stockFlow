@@ -26,6 +26,7 @@ describe('LoginPage', () => {
 
     expect(html).toContain('Sign in to manage stock movement.');
     expect(html).toContain('Login');
+    expect(html).toContain('Local admin: admin@stockflow.test / password');
   });
 });
 

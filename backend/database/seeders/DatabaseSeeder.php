@@ -14,9 +14,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory()->create([
-            'name' => 'StockFlow Admin',
-            'email' => 'admin@stockflow.test',
-        ]);
+        User::query()->updateOrCreate(
+            ['email' => 'admin@stockflow.test'],
+            [
+                'name' => 'StockFlow Admin',
+                'password' => 'password',
+            ],
+        );
     }
 }

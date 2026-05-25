@@ -22,6 +22,9 @@ export default function LoginPage() {
           <div className="panel">
             <h2>Login</h2>
             <LoginForm />
+            <p className="helper-text">
+              Local admin: admin@stockflow.test / password
+            </p>
           </div>
         </section>
       </main>

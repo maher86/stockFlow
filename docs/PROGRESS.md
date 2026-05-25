@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P8 — Frontend Auth |
-| **Last Completed Task** | P8-T4: Frontend auth smoke tests |
-| **Next Task** | P8-T5: PR → CI green → merge |
+| **Active Phase** | P9 — Frontend Inventory |
+| **Last Completed Task** | P8-T5: PR → CI green → merge |
+| **Next Task** | P9-T1: Package list + create flow |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P8-frontend-auth` |
+| **Branch** | `feature/P9-frontend-inventory` |
 
 ---
 
@@ -27,6 +27,7 @@
 - P5 — Items
 - P6 — Invoices
 - P7 — Dashboard
+- P8 — Frontend Auth
 
 ---
 
@@ -123,16 +124,16 @@
 | P7-T3 | PHPUnit: stats accuracy tests | ✅ DONE |
 | P7-T4 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P8 — Frontend Auth
+### ✅ Completed Phase: P8 — Frontend Auth
 | Task ID | Task | Status |
 |---------|------|--------|
 | P8-T1 | API client + auth token store | ✅ DONE |
 | P8-T2 | Login page + form | ✅ DONE |
 | P8-T3 | Protected dashboard route | ✅ DONE |
 | P8-T4 | Frontend auth smoke tests | ✅ DONE |
-| P8-T5 | PR → CI green → merge | ⬜ TODO |
+| P8-T5 | PR → CI green → merge | ✅ DONE |
 
-#### P9 — Frontend Inventory
+### 🔄 Active Phase: P9 — Frontend Inventory
 | Task ID | Task | Status |
 |---------|------|--------|
 | P9-T1 | Package list + create flow | ⬜ TODO |
@@ -228,6 +229,7 @@
 | 2026-05-25 | #55 | P8-T2 login page and form completed | P8-T3 |
 | 2026-05-25 | #56 | P8-T3 protected dashboard route completed | P8-T4 |
 | 2026-05-25 | #57 | P8-T4 frontend auth smoke tests completed | P8-T5 |
+| 2026-05-26 | #58 | P8-T5 frontend auth branch local quality gates passed, admin seed made repeatable, and local login verified in browser | P9-T1 |
 
 ---
 
