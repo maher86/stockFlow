@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P7 — Dashboard |
-| **Last Completed Task** | P7-T3: PHPUnit: stats accuracy tests |
-| **Next Task** | P7-T4: PR → CI green → merge |
+| **Active Phase** | P8 — Frontend Auth |
+| **Last Completed Task** | P8-T4: Frontend auth smoke tests |
+| **Next Task** | P8-T5: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P7-dashboard` |
+| **Branch** | `feature/P8-frontend-auth` |
 
 ---
 
@@ -26,6 +26,7 @@
 - P4 — Packages
 - P5 — Items
 - P6 — Invoices
+- P7 — Dashboard
 
 ---
 
@@ -114,16 +115,55 @@
 | P6-T7 | PHPUnit: invoice lifecycle + total calc + status transitions | ✅ DONE |
 | P6-T8 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P7 — Dashboard
+### ✅ Completed Phase: P7 — Dashboard
 | Task ID | Task | Status |
 |---------|------|--------|
 | P7-T1 | DashboardController (overview stats) | ✅ DONE |
 | P7-T2 | ReportsController (monthly, condition, type) | ✅ DONE |
 | P7-T3 | PHPUnit: stats accuracy tests | ✅ DONE |
-| P7-T4 | PR → CI green → merge | ⬜ TODO |
+| P7-T4 | PR → CI green → merge | ✅ DONE |
 
-#### P8–P12 — Frontend
-_Detailed tasks will be added when backend phases complete._
+### 🔄 Active Phase: P8 — Frontend Auth
+| Task ID | Task | Status |
+|---------|------|--------|
+| P8-T1 | API client + auth token store | ✅ DONE |
+| P8-T2 | Login page + form | ✅ DONE |
+| P8-T3 | Protected dashboard route | ✅ DONE |
+| P8-T4 | Frontend auth smoke tests | ✅ DONE |
+| P8-T5 | PR → CI green → merge | ⬜ TODO |
+
+#### P9 — Frontend Inventory
+| Task ID | Task | Status |
+|---------|------|--------|
+| P9-T1 | Package list + create flow | ⬜ TODO |
+| P9-T2 | Item list + condition update flow | ⬜ TODO |
+| P9-T3 | Supplier management UI | ⬜ TODO |
+| P9-T4 | Frontend inventory tests | ⬜ TODO |
+| P9-T5 | PR → CI green → merge | ⬜ TODO |
+
+#### P10 — Frontend Invoices
+| Task ID | Task | Status |
+|---------|------|--------|
+| P10-T1 | Invoice list + create flow | ⬜ TODO |
+| P10-T2 | Customer dropdown + invoice detail | ⬜ TODO |
+| P10-T3 | Invoice status + notes UI | ⬜ TODO |
+| P10-T4 | Frontend invoice tests | ⬜ TODO |
+| P10-T5 | PR → CI green → merge | ⬜ TODO |
+
+#### P11 — Frontend Dashboard
+| Task ID | Task | Status |
+|---------|------|--------|
+| P11-T1 | Dashboard overview cards | ⬜ TODO |
+| P11-T2 | Reports charts/tables | ⬜ TODO |
+| P11-T3 | Frontend dashboard tests | ⬜ TODO |
+| P11-T4 | PR → CI green → merge | ⬜ TODO |
+
+#### P12 — Polish
+| Task ID | Task | Status |
+|---------|------|--------|
+| P12-T1 | Loading, empty, and error states | ⬜ TODO |
+| P12-T2 | Mobile layout pass | ⬜ TODO |
+| P12-T3 | Final regression checks | ⬜ TODO |
 
 ---
 
@@ -183,6 +223,11 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #50 | P7-T1 dashboard overview endpoint completed | P7-T2 |
 | 2026-05-25 | #51 | P7-T2 reports endpoint completed for monthly revenue, condition breakdown, and type breakdown | P7-T3 |
 | 2026-05-25 | #52 | P7-T3 dashboard and report stats tests completed | P7-T4 |
+| 2026-05-25 | #53 | P7-T4 dashboard branch was pushed and local quality gates were green | P8-T1 |
+| 2026-05-25 | #54 | P8-T1 frontend API client and auth token store completed | P8-T2 |
+| 2026-05-25 | #55 | P8-T2 login page and form completed | P8-T3 |
+| 2026-05-25 | #56 | P8-T3 protected dashboard route completed | P8-T4 |
+| 2026-05-25 | #57 | P8-T4 frontend auth smoke tests completed | P8-T5 |
 
 ---
 
