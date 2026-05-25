@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P4 — Packages |
-| **Last Completed Task** | P4-T5: PHPUnit: package lifecycle tests |
-| **Next Task** | P4-T6: PR → CI green → merge |
+| **Active Phase** | P5 — Items |
+| **Last Completed Task** | P5-T5: PHPUnit: item CRUD + condition tests |
+| **Next Task** | P5-T6: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P4-packages` |
+| **Branch** | `feature/P5-items` |
 
 ---
 
@@ -23,6 +23,7 @@
 - P1 — Auth
 - P2 — Suppliers
 - P3 — Customers
+- P4 — Packages
 
 ---
 
@@ -79,7 +80,7 @@
 | P3-T5 | PHPUnit: CRUD + relationship tests | ✅ DONE |
 | P3-T6 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P4 — Packages
+### ✅ Completed Phase: P4 — Packages
 | Task ID | Task | Status |
 |---------|------|--------|
 | P4-T1 | Package migration + model + factory | ✅ DONE |
@@ -87,16 +88,16 @@
 | P4-T3 | PackageController | ✅ DONE |
 | P4-T4 | Sort flow state machine (unsorted→sorted) | ✅ DONE |
 | P4-T5 | PHPUnit: package lifecycle tests | ✅ DONE |
-| P4-T6 | PR → CI green → merge | ⬜ TODO |
+| P4-T6 | PR → CI green → merge | ✅ DONE |
 
-#### P5 — Items
+### 🔄 Active Phase: P5 — Items
 | Task ID | Task | Status |
 |---------|------|--------|
-| P5-T1 | Item migration + model + factory | ⬜ TODO |
-| P5-T2 | ItemRepository + Service | ⬜ TODO |
-| P5-T3 | ItemController + bulk update | ⬜ TODO |
-| P5-T4 | Condition + PriceTier assignment | ⬜ TODO |
-| P5-T5 | PHPUnit: item CRUD + condition tests | ⬜ TODO |
+| P5-T1 | Item migration + model + factory | ✅ DONE |
+| P5-T2 | ItemRepository + Service | ✅ DONE |
+| P5-T3 | ItemController + bulk update | ✅ DONE |
+| P5-T4 | Condition + PriceTier assignment | ✅ DONE |
+| P5-T5 | PHPUnit: item CRUD + condition tests | ✅ DONE |
 | P5-T6 | PR → CI green → merge | ⬜ TODO |
 
 #### P6 — Invoices
@@ -162,6 +163,12 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #32 | P4-T3 package controller, requests, resource, and protected routes completed | P4-T4 |
 | 2026-05-25 | #33 | P4-T4 sort state transition from unsorted to sorted completed in PackageService | P4-T5 |
 | 2026-05-25 | #34 | P4-T5 package lifecycle feature tests completed and backend checks passed | P4-T6 |
+| 2026-05-25 | #35 | P4-T6 package branch was pushed and local quality gates were green | P5-T1 |
+| 2026-05-25 | #36 | P5-T1 item and item condition migrations, models, factories, enums, and model tests completed | P5-T2 |
+| 2026-05-25 | #37 | P5-T2 item repository, service, condition sync, integration tests, and unit tests completed | P5-T3 |
+| 2026-05-25 | #38 | P5-T3 item controller, resource, requests, protected routes, and bulk update endpoint completed | P5-T4 |
+| 2026-05-25 | #39 | P5-T4 condition and price tier assignment completed through item condition sync | P5-T5 |
+| 2026-05-25 | #40 | P5-T5 item CRUD, bulk update, and condition feature tests completed | P5-T6 |
 
 ---
 
