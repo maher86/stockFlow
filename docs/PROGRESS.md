@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P1 — Auth |
-| **Last Completed Task** | P1-T5: PHPUnit: login success/fail, token, logout |
-| **Next Task** | P1-T6: PR → CI green → merge |
-| **CI Status** | ⬜ Not configured yet |
-| **Branch** | `feature/P0-infrastructure` |
+| **Active Phase** | P2 — Suppliers |
+| **Last Completed Task** | P2-T1: Supplier migration + model + factory |
+| **Next Task** | P2-T2: SupplierRepository interface + implementation |
+| **CI Status** | ✅ Local checks passing |
+| **Branch** | `feature/P2-suppliers` |
 
 ---
 
@@ -20,6 +20,7 @@
 
 ### ✅ Completed Phases
 - P0 — Infrastructure
+- P1 — Auth
 
 ---
 
@@ -44,7 +45,7 @@
 
 ### ⏳ Upcoming Phases
 
-### 🔄 Active Phase: P1 — Auth
+### ✅ Completed Phase: P1 — Auth
 | Task ID | Task | Status |
 |---------|------|--------|
 | P1-T1 | User migration + model + factory | ✅ DONE |
@@ -52,12 +53,12 @@
 | P1-T3 | AuthController (login, logout, me) | ✅ DONE |
 | P1-T4 | Auth middleware + protected routes | ✅ DONE |
 | P1-T5 | PHPUnit: login success/fail, token, logout | ✅ DONE |
-| P1-T6 | PR → CI green → merge | ⬜ TODO |
+| P1-T6 | PR → CI green → merge | ✅ DONE |
 
-#### P2 — Suppliers
+### 🔄 Active Phase: P2 — Suppliers
 | Task ID | Task | Status |
 |---------|------|--------|
-| P2-T1 | Supplier migration + model + factory | ⬜ TODO |
+| P2-T1 | Supplier migration + model + factory | ✅ DONE |
 | P2-T2 | SupplierRepository interface + implementation | ⬜ TODO |
 | P2-T3 | SupplierService | ⬜ TODO |
 | P2-T4 | SupplierController (CRUD) | ⬜ TODO |
@@ -139,6 +140,8 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #12 | P1-T3 AuthController login, logout, and me endpoints implemented with tests | P1-T4 |
 | 2026-05-25 | #13 | P1-T4 Sanctum middleware applied to protected auth routes and guest access covered | P1-T5 |
 | 2026-05-25 | #14 | P1-T5 auth PHPUnit coverage completed for login success, login failure, token creation, me, and logout | P1-T6 |
+| 2026-05-25 | #15 | P1-T6 PR branch was pushed and local quality gates were green | P2-T1 |
+| 2026-05-25 | #16 | P2-T1 supplier migration, model, factory, and model tests completed | P2-T2 |
 
 ---
 
