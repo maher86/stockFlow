@@ -12,6 +12,9 @@ export default function HomePage() {
           <Link className="button" href="/dashboard">
             Dashboard
           </Link>
+          <Link className="button secondary" href="/inventory">
+            Inventory
+          </Link>
         </nav>
       </header>
       <main className="main-surface">

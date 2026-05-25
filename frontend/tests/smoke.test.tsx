@@ -3,6 +3,7 @@ import { renderToString } from 'react-dom/server';
 import { describe, expect, it, vi } from 'vitest';
 
 import DashboardPage from '../src/app/dashboard/page';
+import InventoryPage from '../src/app/inventory/page';
 import LoginPage from '../src/app/login/page';
 import HomePage from '../src/app/page';
 
@@ -33,6 +34,15 @@ describe('LoginPage', () => {
 describe('DashboardPage', () => {
   it('renders the protected dashboard shell without crashing', () => {
     const html = renderToString(<DashboardPage />);
+
+    expect(html).toContain('StockFlow');
+    expect(html).toContain('Loading workspace');
+  });
+});
+
+describe('InventoryPage', () => {
+  it('renders the protected inventory shell without crashing', () => {
+    const html = renderToString(<InventoryPage />);
 
     expect(html).toContain('StockFlow');
     expect(html).toContain('Loading workspace');

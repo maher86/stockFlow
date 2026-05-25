@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P9 — Frontend Inventory |
-| **Last Completed Task** | P8-T5: PR → CI green → merge |
-| **Next Task** | P9-T1: Package list + create flow |
+| **Active Phase** | P10 — Frontend Invoices |
+| **Last Completed Task** | P9-T5: PR → CI green → merge |
+| **Next Task** | P10-T1: Invoice list + create flow |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P9-frontend-inventory` |
+| **Branch** | `feature/P10-frontend-invoices` |
 
 ---
 
@@ -28,6 +28,7 @@
 - P6 — Invoices
 - P7 — Dashboard
 - P8 — Frontend Auth
+- P9 — Frontend Inventory
 
 ---
 
@@ -133,16 +134,16 @@
 | P8-T4 | Frontend auth smoke tests | ✅ DONE |
 | P8-T5 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P9 — Frontend Inventory
+### ✅ Completed Phase: P9 — Frontend Inventory
 | Task ID | Task | Status |
 |---------|------|--------|
-| P9-T1 | Package list + create flow | ⬜ TODO |
-| P9-T2 | Item list + condition update flow | ⬜ TODO |
-| P9-T3 | Supplier management UI | ⬜ TODO |
-| P9-T4 | Frontend inventory tests | ⬜ TODO |
-| P9-T5 | PR → CI green → merge | ⬜ TODO |
+| P9-T1 | Package list + create flow | ✅ DONE |
+| P9-T2 | Item list + condition update flow | ✅ DONE |
+| P9-T3 | Supplier management UI | ✅ DONE |
+| P9-T4 | Frontend inventory tests | ✅ DONE |
+| P9-T5 | PR → CI green → merge | ✅ DONE |
 
-#### P10 — Frontend Invoices
+### 🔄 Active Phase: P10 — Frontend Invoices
 | Task ID | Task | Status |
 |---------|------|--------|
 | P10-T1 | Invoice list + create flow | ⬜ TODO |
@@ -230,6 +231,11 @@
 | 2026-05-25 | #56 | P8-T3 protected dashboard route completed | P8-T4 |
 | 2026-05-25 | #57 | P8-T4 frontend auth smoke tests completed | P8-T5 |
 | 2026-05-26 | #58 | P8-T5 frontend auth branch local quality gates passed, admin seed made repeatable, and local login verified in browser | P9-T1 |
+| 2026-05-26 | #59 | P9-T1 package list and create flow completed in the inventory workspace | P9-T2 |
+| 2026-05-26 | #60 | P9-T2 item condition update flow completed with editable condition, tier, and quantity controls | P9-T3 |
+| 2026-05-26 | #61 | P9-T3 supplier management UI completed with create form and supplier list | P9-T4 |
+| 2026-05-26 | #62 | P9-T4 frontend inventory smoke tests completed | P9-T5 |
+| 2026-05-26 | #63 | P9-T5 inventory branch local quality gates passed, browser verification completed, and branch prepared for PR | P10-T1 |
 
 ---
 

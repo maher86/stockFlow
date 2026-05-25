@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
 import { ProtectedRoute } from '../../components/auth/protected-route';
-import { DashboardOverview } from '../../components/dashboard/dashboard-overview';
+import { InventoryWorkspace } from '../../components/inventory/inventory-workspace';
 
-export default function DashboardPage() {
+export default function InventoryPage() {
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -11,8 +11,8 @@ export default function DashboardPage() {
           StockFlow
         </Link>
         <nav className="nav-actions" aria-label="Workspace">
-          <Link className="button secondary" href="/inventory">
-            Inventory
+          <Link className="button secondary" href="/dashboard">
+            Dashboard
           </Link>
           <Link className="button secondary" href="/login">
             Login
@@ -21,7 +21,7 @@ export default function DashboardPage() {
       </header>
       <main className="main-surface">
         <ProtectedRoute>
-          <DashboardOverview />
+          <InventoryWorkspace />
         </ProtectedRoute>
       </main>
     </div>
