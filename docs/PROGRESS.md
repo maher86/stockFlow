@@ -8,9 +8,9 @@
 
 | | |
 |---|---|
-| **Active Phase** | P0 — Infrastructure |
-| **Last Completed Task** | P0-T3: Next.js 14 boilerplate in `/frontend` |
-| **Next Task** | P0-T4: Makefile with shortcuts |
+| **Active Phase** | P1 — Auth |
+| **Last Completed Task** | P0-T9: Vitest base config + first smoke test |
+| **Next Task** | P1-T1: User migration + model + factory |
 | **CI Status** | ⬜ Not configured yet |
 | **Branch** | `feature/P0-infrastructure` |
 
@@ -19,11 +19,11 @@
 ## Phase Progress
 
 ### ✅ Completed Phases
-_None yet_
+- P0 — Infrastructure
 
 ---
 
-### 🔄 Active Phase: P0 — Infrastructure
+### ✅ Completed Phase: P0 — Infrastructure
 
 **Goal:** Docker running locally, empty Laravel + Next.js boots, CI configured.
 
@@ -32,19 +32,19 @@ _None yet_
 | P0-T1 | Docker Compose (mysql, redis, backend, frontend, nginx, minio) | ⬜ TODO | |
 | P0-T2 | Laravel 11 boilerplate in `/backend` | ✅ DONE | Laravel 11 scaffold with Sanctum, Pest, Pint, PHPStan, env examples, and smoke test |
 | P0-T3 | Next.js 14 boilerplate in `/frontend` | ✅ DONE | Next.js App Router scaffold completed and Docker Compose stack verified |
-| P0-T4 | Makefile with shortcuts | ⬜ TODO | |
-| P0-T5 | GitHub Actions — backend CI | ⬜ TODO | |
-| P0-T6 | GitHub Actions — frontend CI | ⬜ TODO | |
-| P0-T7 | GitHub Actions — deploy workflow | ⬜ TODO | |
-| P0-T8 | PHPUnit base config + first smoke test | ⬜ TODO | |
-| P0-T9 | Vitest base config + first smoke test | ⬜ TODO | |
+| P0-T4 | Makefile with shortcuts | ✅ DONE | Verified Docker-backed test-backend, migrate, shell, and status command paths |
+| P0-T5 | GitHub Actions — backend CI | ✅ DONE | PR workflow for PHP 8.3, Composer install, test DB migrations, and php artisan test |
+| P0-T6 | GitHub Actions — frontend CI | ✅ DONE | PR workflow for npm ci, type-check, ESLint, and Vitest |
+| P0-T7 | GitHub Actions — deploy workflow | ✅ DONE | Placeholder deploy workflow runs on push to main with SSH steps commented out |
+| P0-T8 | PHPUnit base config + first smoke test | ✅ DONE | PHPUnit smoke test verifies GET /api/v1/health returns 200 |
+| P0-T9 | Vitest base config + first smoke test | ✅ DONE | Vitest smoke test verifies the Home page renders without crashing |
 | P0-T10 | PR to develop, CI green, merge | ⬜ TODO | |
 
 ---
 
 ### ⏳ Upcoming Phases
 
-#### P1 — Auth
+### 🔄 Active Phase: P1 — Auth
 | Task ID | Task | Status |
 |---------|------|--------|
 | P1-T1 | User migration + model + factory | ⬜ TODO |
@@ -128,6 +128,12 @@ _Detailed tasks will be added when backend phases complete._
 | — | #1 | Project setup, BLUEPRINT.md and PROGRESS.md created | P0-T1 |
 | 2026-05-25 | #2 | P0-T2 Laravel 11 backend scaffold created with Sanctum, Pest, Pint, PHPStan, env examples, and smoke test | P0-T3 |
 | 2026-05-25 | #3 | P0-T3 frontend scaffold completed; Docker Compose build/start fixed and verified | P0-T4 |
+| 2026-05-25 | #4 | P0-T4 Makefile shortcuts completed and Docker command paths verified | P0-T5 |
+| 2026-05-25 | #5 | P0-T5 backend CI workflow created for PRs to main and develop | P0-T6 |
+| 2026-05-25 | #6 | P0-T6 frontend CI workflow created with npm ci, type-check, ESLint, and Vitest | P0-T7 |
+| 2026-05-25 | #7 | P0-T7 placeholder deploy workflow created for pushes to main | P0-T8 |
+| 2026-05-25 | #8 | P0-T8 backend PHPUnit smoke test added for GET /api/v1/health | P0-T9 |
+| 2026-05-25 | #9 | P0-T9 frontend Vitest smoke test added and P0 moved to completed phases | P1-T1 |
 
 ---
 

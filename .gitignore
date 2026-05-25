@@ -1,0 +1,17 @@
+.DS_Store
+Thumbs.db
+
+node_modules/
+.next/
+dist/
+coverage/
+
+*.log
+*.tmp
+*.cache
+tsconfig.tsbuildinfo
+
+.env
+.env.*
+!.env.example
+!.env.testing.example

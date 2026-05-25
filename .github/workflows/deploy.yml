@@ -2,57 +2,33 @@ name: Deploy
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   deploy:
-    name: Deploy to Production
+    name: Placeholder Deploy
     runs-on: ubuntu-latest
-    needs: [] # Add backend-ci and frontend-ci job IDs when ready
-
-    environment:
-      name: production
-      url: ${{ vars.PRODUCTION_URL }}
 
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Deploy backend
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            cd /var/www/stockflow/backend
-            git pull origin main
-            composer install --no-dev --optimize-autoloader
-            php artisan migrate --force
-            php artisan config:cache
-            php artisan route:cache
-            php artisan view:cache
-            php artisan queue:restart
-            echo "Backend deployed ✓"
+      - name: Placeholder
+        run: |
+          echo "Deploy workflow placeholder."
+          echo "SSH deploy steps will be enabled after infrastructure is ready."
 
-      - name: Deploy frontend
-        uses: appleboy/ssh-action@v1.0.0
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          script: |
-            cd /var/www/stockflow/frontend
-            git pull origin main
-            npm ci
-            npm run build
-            pm2 restart stockflow-frontend
-            echo "Frontend deployed ✓"
-
-      - name: Notify success
-        if: success()
-        run: echo "::notice::Deployment to production successful!"
-
-      - name: Notify failure
-        if: failure()
-        run: echo "::error::Deployment failed! Check logs."
+      # Future SSH deploy example:
+      #
+      # - name: Deploy over SSH
+      #   uses: appleboy/ssh-action@v1.0.3
+      #   with:
+      #     host: ${{ secrets.SERVER_HOST }}
+      #     username: ${{ secrets.SERVER_USER }}
+      #     key: ${{ secrets.SERVER_SSH_KEY }}
+      #     script: |
+      #       cd /var/www/stockflow
+      #       git pull origin main
+      #       docker compose pull
+      #       docker compose up -d --build

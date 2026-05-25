@@ -1,137 +1,96 @@
 # StockFlow Makefile
 # Usage: make <command>
 
-.PHONY: help up down build test test-backend test-frontend migrate seed fresh logs shell status
+.PHONY: help up down build restart test test-backend test-frontend migrate migrate-test seed fresh shell shell-frontend status logs logs-backend logs-queue type-check lint-backend lint-frontend routes cache-clear queue-work tinker
 
-# ─── Colors ──────────────────────────────────────────────────────────────────
-GREEN  = \033[0;32m
-YELLOW = \033[0;33m
-RESET  = \033[0m
+COMPOSE = docker compose
 
-help: ## Show this help
+help: ## Show available commands
 	@echo ""
-	@echo "$(GREEN)StockFlow — Available Commands$(RESET)"
-	@echo "─────────────────────────────────────────"
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
-		awk 'BEGIN {FS = ":.*?## "}; {printf "  $(YELLOW)%-20s$(RESET) %s\n", $$1, $$2}'
+	@echo "StockFlow - Available Commands"
+	@echo "--------------------------------"
+	@awk 'BEGIN {FS = ":.*?## "}; /^[a-zA-Z_-]+:.*?## / {printf "  %-22s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 	@echo ""
 
-# ─── Docker ──────────────────────────────────────────────────────────────────
 up: ## Start all containers
-	docker compose up -d
-	@echo "$(GREEN)✓ StockFlow running at http://localhost$(RESET)"
+	$(COMPOSE) up -d
+	@echo "StockFlow running at http://localhost"
 
 down: ## Stop all containers
-	docker compose down
+	$(COMPOSE) down
 
 build: ## Rebuild all containers
-	docker compose build --no-cache
+	$(COMPOSE) build --no-cache
 
 restart: ## Restart all containers
-	docker compose restart
+	$(COMPOSE) restart
 
-# ─── Backend ─────────────────────────────────────────────────────────────────
 migrate: ## Run database migrations
-	docker compose exec backend php artisan migrate
+	$(COMPOSE) exec backend php artisan migrate --force
 
-migrate-test: ## Run migrations on test database
-	docker compose exec backend php artisan migrate --env=testing
+migrate-test: ## Run migrations on the test database
+	$(COMPOSE) exec backend php artisan migrate --env=testing --force
 
 seed: ## Run database seeders
-	docker compose exec backend php artisan db:seed
+	$(COMPOSE) exec backend php artisan db:seed --force
 
-fresh: ## Fresh migration + seed (DESTROYS ALL DATA)
-	docker compose exec backend php artisan migrate:fresh --seed
+fresh: ## Fresh migration plus seed, destroying local data
+	$(COMPOSE) exec backend php artisan migrate:fresh --seed --force
 
-shell: ## SSH into backend container
-	docker compose exec backend bash
+shell: ## Open a shell in the backend container
+	$(COMPOSE) exec backend sh
 
-shell-frontend: ## SSH into frontend container
-	docker compose exec frontend sh
+shell-frontend: ## Open a shell in the frontend container
+	$(COMPOSE) exec frontend sh
 
-# ─── Testing ─────────────────────────────────────────────────────────────────
-test: test-backend test-frontend ## Run ALL tests
+test: test-backend test-frontend ## Run backend and frontend tests
 
-test-backend: ## Run PHPUnit tests
-	@echo "$(GREEN)Running backend tests...$(RESET)"
-	docker compose exec backend php artisan test --parallel
+test-backend: ## Run backend tests
+	$(COMPOSE) exec backend php artisan test
 
-test-backend-coverage: ## Run PHPUnit with coverage report
-	docker compose exec backend php artisan test --coverage --min=80
+test-frontend: ## Run frontend tests
+	$(COMPOSE) exec frontend npm run test:ci
 
-test-backend-filter: ## Run specific test: make test-backend-filter FILTER=SupplierTest
-	docker compose exec backend php artisan test --filter=$(FILTER)
+type-check: ## Run frontend TypeScript type check
+	$(COMPOSE) exec frontend npm run type-check
 
-test-frontend: ## Run Vitest tests
-	@echo "$(GREEN)Running frontend tests...$(RESET)"
-	docker compose exec frontend npm run test
+lint-backend: ## Check backend formatting with Pint
+	$(COMPOSE) exec backend ./vendor/bin/pint --test
 
-test-frontend-coverage: ## Run Vitest with coverage
-	docker compose exec frontend npm run test:coverage
+lint-frontend: ## Run frontend ESLint
+	$(COMPOSE) exec frontend npm run lint
 
-type-check: ## TypeScript type check
-	docker compose exec frontend npm run type-check
-
-lint-backend: ## Run PHP CS Fixer
-	docker compose exec backend ./vendor/bin/pint
-
-lint-frontend: ## Run ESLint
-	docker compose exec frontend npm run lint
-
-# ─── Status ──────────────────────────────────────────────────────────────────
-status: ## Show test status and progress
+status: ## Show container status and core checks
 	@echo ""
-	@echo "$(GREEN)=== StockFlow Status ===$(RESET)"
+	@echo "=== Containers ==="
+	$(COMPOSE) ps
 	@echo ""
-	@echo "$(YELLOW)Backend Tests:$(RESET)"
-	@docker compose exec backend php artisan test --parallel 2>&1 | tail -5
+	@echo "=== Backend Tests ==="
+	$(COMPOSE) exec -T backend php artisan test
 	@echo ""
-	@echo "$(YELLOW)Frontend Type Check:$(RESET)"
-	@docker compose exec frontend npm run type-check 2>&1 | tail -3
+	@echo "=== Frontend Type Check ==="
+	$(COMPOSE) exec -T frontend npm run type-check
 	@echo ""
-	@echo "$(YELLOW)Current Progress:$(RESET)"
-	@grep "Active Phase\|Next Task\|Last Completed" docs/PROGRESS.md | head -5
-	@echo ""
+	@echo "=== API Routes ==="
+	$(COMPOSE) exec -T backend php artisan route:list --path=api
 
-# ─── Logs ────────────────────────────────────────────────────────────────────
-logs: ## Show all container logs
-	docker compose logs -f
+logs: ## Follow all container logs
+	$(COMPOSE) logs -f
 
-logs-backend: ## Show backend logs only
-	docker compose logs -f backend
+logs-backend: ## Follow backend logs
+	$(COMPOSE) logs -f backend
 
-logs-queue: ## Show queue worker logs
-	docker compose logs -f queue
+logs-queue: ## Follow queue worker logs
+	$(COMPOSE) logs -f queue
 
-# ─── Utilities ───────────────────────────────────────────────────────────────
-ide-helper: ## Generate Laravel IDE helper files
-	docker compose exec backend php artisan ide-helper:generate
-	docker compose exec backend php artisan ide-helper:models -W
+routes: ## List API routes
+	$(COMPOSE) exec backend php artisan route:list --path=api
 
-routes: ## List all API routes
-	docker compose exec backend php artisan route:list --path=api
+cache-clear: ## Clear Laravel caches
+	$(COMPOSE) exec backend php artisan optimize:clear
 
-cache-clear: ## Clear all Laravel caches
-	docker compose exec backend php artisan optimize:clear
+queue-work: ## Start a queue worker in the backend container
+	$(COMPOSE) exec backend php artisan queue:work
 
-queue-work: ## Start queue worker in foreground
-	docker compose exec backend php artisan queue:work
-
-horizon: ## Start Laravel Horizon dashboard
-	docker compose exec backend php artisan horizon
-
-tinker: ## Laravel Tinker REPL
-	docker compose exec backend php artisan tinker
-
-# ─── Setup ───────────────────────────────────────────────────────────────────
-setup: ## First-time project setup
-	@echo "$(GREEN)Setting up StockFlow...$(RESET)"
-	cp backend/.env.example backend/.env
-	cp frontend/.env.example frontend/.env.local
-	docker compose build
-	docker compose up -d
-	docker compose exec backend composer install
-	docker compose exec backend php artisan key:generate
-	docker compose exec backend php artisan migrate --seed
-	docker compose exec frontend npm install
-	@echo "$(GREEN)✓ Setup complete! Visit http://localhost$(RESET)"
+tinker: ## Open Laravel Tinker
+	$(COMPOSE) exec backend php artisan tinker

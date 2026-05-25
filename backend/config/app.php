@@ -1,6 +1,8 @@
 <?php
 
 declare(strict_types=1);
+use App\Providers\AppServiceProvider;
+use Illuminate\Support\ServiceProvider;
 
 return [
     'name' => env('APP_NAME', 'StockFlow'),
@@ -20,7 +22,7 @@ return [
         'driver' => env('APP_MAINTENANCE_DRIVER', 'file'),
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
-    'providers' => Illuminate\Support\ServiceProvider::defaultProviders()->merge([
-        App\Providers\AppServiceProvider::class,
+    'providers' => ServiceProvider::defaultProviders()->merge([
+        AppServiceProvider::class,
     ])->toArray(),
 ];

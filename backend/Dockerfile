@@ -40,7 +40,7 @@ WORKDIR /var/www/backend
 COPY composer.json ./
 
 # Install dependencies
-RUN composer install --no-scripts --no-autoloader --no-dev --ignore-platform-reqs
+RUN composer install --no-scripts --no-autoloader --ignore-platform-reqs
 
 # Copy application files
 COPY . .
