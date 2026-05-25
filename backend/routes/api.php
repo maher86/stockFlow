@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\CustomerController;
+use App\Http\Controllers\Api\V1\PackageController;
 use App\Http\Controllers\Api\V1\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,6 +27,8 @@ Route::prefix('v1')->group(function (): void {
 
     Route::middleware('auth:sanctum')->group(function (): void {
         Route::apiResource('customers', CustomerController::class);
+        Route::post('/packages/{package}/sort', [PackageController::class, 'sort']);
+        Route::apiResource('packages', PackageController::class)->except(['destroy']);
         Route::apiResource('suppliers', SupplierController::class);
     });
 });

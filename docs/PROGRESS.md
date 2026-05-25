@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P3 — Customers |
-| **Last Completed Task** | P3-T5: PHPUnit: CRUD + relationship tests |
-| **Next Task** | P3-T6: PR → CI green → merge |
+| **Active Phase** | P4 — Packages |
+| **Last Completed Task** | P4-T5: PHPUnit: package lifecycle tests |
+| **Next Task** | P4-T6: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P3-customers` |
+| **Branch** | `feature/P4-packages` |
 
 ---
 
@@ -22,6 +22,7 @@
 - P0 — Infrastructure
 - P1 — Auth
 - P2 — Suppliers
+- P3 — Customers
 
 ---
 
@@ -68,7 +69,7 @@
 | P2-T7 | PHPUnit: CRUD feature tests | ✅ DONE |
 | P2-T8 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P3 — Customers
+### ✅ Completed Phase: P3 — Customers
 | Task ID | Task | Status |
 |---------|------|--------|
 | P3-T1 | Customer migration + model + factory | ✅ DONE |
@@ -76,16 +77,16 @@
 | P3-T3 | CustomerController (CRUD) | ✅ DONE |
 | P3-T4 | Customer → Invoice relationship | ✅ DONE |
 | P3-T5 | PHPUnit: CRUD + relationship tests | ✅ DONE |
-| P3-T6 | PR → CI green → merge | ⬜ TODO |
+| P3-T6 | PR → CI green → merge | ✅ DONE |
 
-#### P4 — Packages
+### 🔄 Active Phase: P4 — Packages
 | Task ID | Task | Status |
 |---------|------|--------|
-| P4-T1 | Package migration + model + factory | ⬜ TODO |
-| P4-T2 | PackageRepository + Service | ⬜ TODO |
-| P4-T3 | PackageController | ⬜ TODO |
-| P4-T4 | Sort flow state machine (unsorted→sorted) | ⬜ TODO |
-| P4-T5 | PHPUnit: package lifecycle tests | ⬜ TODO |
+| P4-T1 | Package migration + model + factory | ✅ DONE |
+| P4-T2 | PackageRepository + Service | ✅ DONE |
+| P4-T3 | PackageController | ✅ DONE |
+| P4-T4 | Sort flow state machine (unsorted→sorted) | ✅ DONE |
+| P4-T5 | PHPUnit: package lifecycle tests | ✅ DONE |
 | P4-T6 | PR → CI green → merge | ⬜ TODO |
 
 #### P5 — Items
@@ -155,6 +156,12 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #26 | P3-T3 customer CRUD controller and protected routes completed | P3-T4 |
 | 2026-05-25 | #27 | P3-T4 deferred relationship implementation until invoice tables are introduced in P6 | P3-T5 |
 | 2026-05-25 | #28 | P3-T5 customer CRUD feature tests completed and backend checks passed | P3-T6 |
+| 2026-05-25 | #29 | P3-T6 customer branch was pushed and local quality gates were green | P4-T1 |
+| 2026-05-25 | #30 | P4-T1 package migration, model, factory, enum, supplier relationship, and model tests completed | P4-T2 |
+| 2026-05-25 | #31 | P4-T2 package repository, service, sort transition, integration tests, and unit tests completed | P4-T3 |
+| 2026-05-25 | #32 | P4-T3 package controller, requests, resource, and protected routes completed | P4-T4 |
+| 2026-05-25 | #33 | P4-T4 sort state transition from unsorted to sorted completed in PackageService | P4-T5 |
+| 2026-05-25 | #34 | P4-T5 package lifecycle feature tests completed and backend checks passed | P4-T6 |
 
 ---
 
