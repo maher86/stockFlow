@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\CustomerController;
+use App\Http\Controllers\Api\V1\InvoiceController;
 use App\Http\Controllers\Api\V1\ItemController;
 use App\Http\Controllers\Api\V1\PackageController;
 use App\Http\Controllers\Api\V1\SupplierController;
@@ -28,6 +29,10 @@ Route::prefix('v1')->group(function (): void {
 
     Route::middleware('auth:sanctum')->group(function (): void {
         Route::apiResource('customers', CustomerController::class);
+        Route::patch('/invoices/{invoice}/status', [InvoiceController::class, 'updateStatus']);
+        Route::post('/invoices/{invoice}/notes', [InvoiceController::class, 'notes']);
+        Route::get('/invoices/{invoice}/pdf', [InvoiceController::class, 'pdf']);
+        Route::apiResource('invoices', InvoiceController::class);
         Route::post('/items/bulk-update', [ItemController::class, 'bulkUpdate']);
         Route::apiResource('items', ItemController::class);
         Route::post('/packages/{package}/sort', [PackageController::class, 'sort']);

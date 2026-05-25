@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P5 — Items |
-| **Last Completed Task** | P5-T5: PHPUnit: item CRUD + condition tests |
-| **Next Task** | P5-T6: PR → CI green → merge |
+| **Active Phase** | P6 — Invoices |
+| **Last Completed Task** | P6-T7: PHPUnit: invoice lifecycle + total calc + status transitions |
+| **Next Task** | P6-T8: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P5-items` |
+| **Branch** | `feature/P6-invoices` |
 
 ---
 
@@ -24,6 +24,7 @@
 - P2 — Suppliers
 - P3 — Customers
 - P4 — Packages
+- P5 — Items
 
 ---
 
@@ -90,7 +91,7 @@
 | P4-T5 | PHPUnit: package lifecycle tests | ✅ DONE |
 | P4-T6 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P5 — Items
+### ✅ Completed Phase: P5 — Items
 | Task ID | Task | Status |
 |---------|------|--------|
 | P5-T1 | Item migration + model + factory | ✅ DONE |
@@ -98,18 +99,18 @@
 | P5-T3 | ItemController + bulk update | ✅ DONE |
 | P5-T4 | Condition + PriceTier assignment | ✅ DONE |
 | P5-T5 | PHPUnit: item CRUD + condition tests | ✅ DONE |
-| P5-T6 | PR → CI green → merge | ⬜ TODO |
+| P5-T6 | PR → CI green → merge | ✅ DONE |
 
-#### P6 — Invoices
+### 🔄 Active Phase: P6 — Invoices
 | Task ID | Task | Status |
 |---------|------|--------|
-| P6-T1 | Invoice + InvoiceItem + InvoiceNote migrations | ⬜ TODO |
-| P6-T2 | InvoiceRepository + Service | ⬜ TODO |
-| P6-T3 | InvoiceController (full CRUD + status) | ⬜ TODO |
-| P6-T4 | Invoice notes endpoint | ⬜ TODO |
-| P6-T5 | Invoice history (audit log) | ⬜ TODO |
-| P6-T6 | PDF generation (Spatie/Laravel PDF) | ⬜ TODO |
-| P6-T7 | PHPUnit: invoice lifecycle + total calc + status transitions | ⬜ TODO |
+| P6-T1 | Invoice + InvoiceItem + InvoiceNote migrations | ✅ DONE |
+| P6-T2 | InvoiceRepository + Service | ✅ DONE |
+| P6-T3 | InvoiceController (full CRUD + status) | ✅ DONE |
+| P6-T4 | Invoice notes endpoint | ✅ DONE |
+| P6-T5 | Invoice history (audit log) | ✅ DONE |
+| P6-T6 | PDF generation (Spatie/Laravel PDF) | ✅ DONE |
+| P6-T7 | PHPUnit: invoice lifecycle + total calc + status transitions | ✅ DONE |
 | P6-T8 | PR → CI green → merge | ⬜ TODO |
 
 #### P7 — Dashboard
@@ -169,6 +170,14 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #38 | P5-T3 item controller, resource, requests, protected routes, and bulk update endpoint completed | P5-T4 |
 | 2026-05-25 | #39 | P5-T4 condition and price tier assignment completed through item condition sync | P5-T5 |
 | 2026-05-25 | #40 | P5-T5 item CRUD, bulk update, and condition feature tests completed | P5-T6 |
+| 2026-05-25 | #41 | P5-T6 item branch was pushed and local quality gates were green | P6-T1 |
+| 2026-05-25 | #42 | P6-T1 invoice, invoice item, invoice note, and invoice history migrations, models, factories, and model tests completed | P6-T2 |
+| 2026-05-25 | #43 | P6-T2 invoice repository, service, total calculation, item sync, notes, history, integration tests, and unit tests completed | P6-T3 |
+| 2026-05-25 | #44 | P6-T3 invoice CRUD controller, requests, resources, status endpoint, and protected routes completed | P6-T4 |
+| 2026-05-25 | #45 | P6-T4 invoice notes endpoint completed | P6-T5 |
+| 2026-05-25 | #46 | P6-T5 invoice history recording completed in InvoiceService | P6-T6 |
+| 2026-05-25 | #47 | P6-T6 PDF placeholder endpoint completed pending Spatie PDF package integration | P6-T7 |
+| 2026-05-25 | #48 | P6-T7 invoice lifecycle, total calculation, status transition, notes, and PDF feature tests completed | P6-T8 |
 
 ---
 
