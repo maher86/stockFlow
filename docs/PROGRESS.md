@@ -9,8 +9,8 @@
 | | |
 |---|---|
 | **Active Phase** | P2 — Suppliers |
-| **Last Completed Task** | P2-T1: Supplier migration + model + factory |
-| **Next Task** | P2-T2: SupplierRepository interface + implementation |
+| **Last Completed Task** | P2-T7: PHPUnit: CRUD feature tests |
+| **Next Task** | P2-T8: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
 | **Branch** | `feature/P2-suppliers` |
 
@@ -59,12 +59,12 @@
 | Task ID | Task | Status |
 |---------|------|--------|
 | P2-T1 | Supplier migration + model + factory | ✅ DONE |
-| P2-T2 | SupplierRepository interface + implementation | ⬜ TODO |
-| P2-T3 | SupplierService | ⬜ TODO |
-| P2-T4 | SupplierController (CRUD) | ⬜ TODO |
-| P2-T5 | SupplierRequest (create + update) | ⬜ TODO |
-| P2-T6 | SupplierResource | ⬜ TODO |
-| P2-T7 | PHPUnit: CRUD feature tests | ⬜ TODO |
+| P2-T2 | SupplierRepository interface + implementation | ✅ DONE |
+| P2-T3 | SupplierService | ✅ DONE |
+| P2-T4 | SupplierController (CRUD) | ✅ DONE |
+| P2-T5 | SupplierRequest (create + update) | ✅ DONE |
+| P2-T6 | SupplierResource | ✅ DONE |
+| P2-T7 | PHPUnit: CRUD feature tests | ✅ DONE |
 | P2-T8 | PR → CI green → merge | ⬜ TODO |
 
 #### P3 — Customers
@@ -142,6 +142,12 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #14 | P1-T5 auth PHPUnit coverage completed for login success, login failure, token creation, me, and logout | P1-T6 |
 | 2026-05-25 | #15 | P1-T6 PR branch was pushed and local quality gates were green | P2-T1 |
 | 2026-05-25 | #16 | P2-T1 supplier migration, model, factory, and model tests completed | P2-T2 |
+| 2026-05-25 | #17 | P2-T2 supplier repository contract, Eloquent implementation, binding, and integration tests completed | P2-T3 |
+| 2026-05-25 | #18 | P2-T3 supplier service completed with unit tests | P2-T4 |
+| 2026-05-25 | #19 | P2-T4 supplier CRUD controller and protected routes completed | P2-T5 |
+| 2026-05-25 | #20 | P2-T5 supplier create and update form requests completed | P2-T6 |
+| 2026-05-25 | #21 | P2-T6 supplier API resource completed | P2-T7 |
+| 2026-05-25 | #22 | P2-T7 supplier CRUD feature tests completed and backend checks passed | P2-T8 |
 
 ---
 
