@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 use App\Http\Controllers\Api\V1\AuthController;
 use App\Http\Controllers\Api\V1\CustomerController;
+use App\Http\Controllers\Api\V1\DashboardController;
 use App\Http\Controllers\Api\V1\InvoiceController;
 use App\Http\Controllers\Api\V1\ItemController;
 use App\Http\Controllers\Api\V1\PackageController;
+use App\Http\Controllers\Api\V1\ReportsController;
 use App\Http\Controllers\Api\V1\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -29,6 +31,8 @@ Route::prefix('v1')->group(function (): void {
 
     Route::middleware('auth:sanctum')->group(function (): void {
         Route::apiResource('customers', CustomerController::class);
+        Route::get('/dashboard/overview', [DashboardController::class, 'overview']);
+        Route::get('/dashboard/reports', [ReportsController::class, 'index']);
         Route::patch('/invoices/{invoice}/status', [InvoiceController::class, 'updateStatus']);
         Route::post('/invoices/{invoice}/notes', [InvoiceController::class, 'notes']);
         Route::get('/invoices/{invoice}/pdf', [InvoiceController::class, 'pdf']);
