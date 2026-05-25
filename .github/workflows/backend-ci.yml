@@ -1,0 +1,108 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'backend/**'
+      - '.github/workflows/backend-ci.yml'
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'backend/**'
+
+jobs:
+  test:
+    name: PHPUnit Tests
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: rootsecret
+          MYSQL_DATABASE: stockflow_test
+          MYSQL_USER: stockflow
+          MYSQL_PASSWORD: secret
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="mysqladmin ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+        options: >-
+          --health-cmd="redis-cli ping"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, dom, fileinfo, mysql, redis
+          coverage: xdebug
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: backend/vendor
+          key: composer-${{ hashFiles('backend/composer.lock') }}
+          restore-keys: composer-
+
+      - name: Install Composer dependencies
+        working-directory: backend
+        run: composer install --no-progress --prefer-dist --optimize-autoloader
+
+      - name: Copy .env.testing
+        working-directory: backend
+        run: cp .env.testing.example .env.testing
+
+      - name: Generate application key
+        working-directory: backend
+        run: php artisan key:generate --env=testing
+
+      - name: Run database migrations
+        working-directory: backend
+        run: php artisan migrate --env=testing --force
+        env:
+          DB_HOST: 127.0.0.1
+          DB_DATABASE: stockflow_test
+          DB_USERNAME: stockflow
+          DB_PASSWORD: secret
+
+      - name: Run PHP CS Fixer (lint)
+        working-directory: backend
+        run: ./vendor/bin/pint --test
+
+      - name: Run PHPStan (static analysis)
+        working-directory: backend
+        run: ./vendor/bin/phpstan analyse --no-progress
+
+      - name: Run PHPUnit tests with coverage
+        working-directory: backend
+        run: php artisan test --parallel --coverage --min=80
+        env:
+          DB_HOST: 127.0.0.1
+          DB_DATABASE: stockflow_test
+          DB_USERNAME: stockflow
+          DB_PASSWORD: secret
+          REDIS_HOST: 127.0.0.1
+          QUEUE_CONNECTION: sync
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v3
+        if: always()
+        with:
+          files: backend/coverage.xml
+          flags: backend

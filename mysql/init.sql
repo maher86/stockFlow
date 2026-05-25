@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS stockflow CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON stockflow.* TO 'stockflow'@'%';
+FLUSH PRIVILEGES;
+CREATE DATABASE IF NOT EXISTS stockflow CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON stockflow.* TO 'stockflow'@'%';
+FLUSH PRIVILEGES;
