@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P6 — Invoices |
-| **Last Completed Task** | P6-T7: PHPUnit: invoice lifecycle + total calc + status transitions |
-| **Next Task** | P6-T8: PR → CI green → merge |
+| **Active Phase** | P7 — Dashboard |
+| **Last Completed Task** | P7-T3: PHPUnit: stats accuracy tests |
+| **Next Task** | P7-T4: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P6-invoices` |
+| **Branch** | `feature/P7-dashboard` |
 
 ---
 
@@ -25,6 +25,7 @@
 - P3 — Customers
 - P4 — Packages
 - P5 — Items
+- P6 — Invoices
 
 ---
 
@@ -101,7 +102,7 @@
 | P5-T5 | PHPUnit: item CRUD + condition tests | ✅ DONE |
 | P5-T6 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P6 — Invoices
+### ✅ Completed Phase: P6 — Invoices
 | Task ID | Task | Status |
 |---------|------|--------|
 | P6-T1 | Invoice + InvoiceItem + InvoiceNote migrations | ✅ DONE |
@@ -111,14 +112,14 @@
 | P6-T5 | Invoice history (audit log) | ✅ DONE |
 | P6-T6 | PDF generation (Spatie/Laravel PDF) | ✅ DONE |
 | P6-T7 | PHPUnit: invoice lifecycle + total calc + status transitions | ✅ DONE |
-| P6-T8 | PR → CI green → merge | ⬜ TODO |
+| P6-T8 | PR → CI green → merge | ✅ DONE |
 
-#### P7 — Dashboard
+### 🔄 Active Phase: P7 — Dashboard
 | Task ID | Task | Status |
 |---------|------|--------|
-| P7-T1 | DashboardController (overview stats) | ⬜ TODO |
-| P7-T2 | ReportsController (monthly, condition, type) | ⬜ TODO |
-| P7-T3 | PHPUnit: stats accuracy tests | ⬜ TODO |
+| P7-T1 | DashboardController (overview stats) | ✅ DONE |
+| P7-T2 | ReportsController (monthly, condition, type) | ✅ DONE |
+| P7-T3 | PHPUnit: stats accuracy tests | ✅ DONE |
 | P7-T4 | PR → CI green → merge | ⬜ TODO |
 
 #### P8–P12 — Frontend
@@ -178,6 +179,10 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #46 | P6-T5 invoice history recording completed in InvoiceService | P6-T6 |
 | 2026-05-25 | #47 | P6-T6 PDF placeholder endpoint completed pending Spatie PDF package integration | P6-T7 |
 | 2026-05-25 | #48 | P6-T7 invoice lifecycle, total calculation, status transition, notes, and PDF feature tests completed | P6-T8 |
+| 2026-05-25 | #49 | P6-T8 invoice branch was pushed and local quality gates were green | P7-T1 |
+| 2026-05-25 | #50 | P7-T1 dashboard overview endpoint completed | P7-T2 |
+| 2026-05-25 | #51 | P7-T2 reports endpoint completed for monthly revenue, condition breakdown, and type breakdown | P7-T3 |
+| 2026-05-25 | #52 | P7-T3 dashboard and report stats tests completed | P7-T4 |
 
 ---
 
