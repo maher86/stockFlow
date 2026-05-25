@@ -8,11 +8,11 @@
 
 | | |
 |---|---|
-| **Active Phase** | P2 — Suppliers |
-| **Last Completed Task** | P2-T7: PHPUnit: CRUD feature tests |
-| **Next Task** | P2-T8: PR → CI green → merge |
+| **Active Phase** | P3 — Customers |
+| **Last Completed Task** | P3-T5: PHPUnit: CRUD + relationship tests |
+| **Next Task** | P3-T6: PR → CI green → merge |
 | **CI Status** | ✅ Local checks passing |
-| **Branch** | `feature/P2-suppliers` |
+| **Branch** | `feature/P3-customers` |
 
 ---
 
@@ -21,6 +21,7 @@
 ### ✅ Completed Phases
 - P0 — Infrastructure
 - P1 — Auth
+- P2 — Suppliers
 
 ---
 
@@ -55,7 +56,7 @@
 | P1-T5 | PHPUnit: login success/fail, token, logout | ✅ DONE |
 | P1-T6 | PR → CI green → merge | ✅ DONE |
 
-### 🔄 Active Phase: P2 — Suppliers
+### ✅ Completed Phase: P2 — Suppliers
 | Task ID | Task | Status |
 |---------|------|--------|
 | P2-T1 | Supplier migration + model + factory | ✅ DONE |
@@ -65,16 +66,16 @@
 | P2-T5 | SupplierRequest (create + update) | ✅ DONE |
 | P2-T6 | SupplierResource | ✅ DONE |
 | P2-T7 | PHPUnit: CRUD feature tests | ✅ DONE |
-| P2-T8 | PR → CI green → merge | ⬜ TODO |
+| P2-T8 | PR → CI green → merge | ✅ DONE |
 
-#### P3 — Customers
+### 🔄 Active Phase: P3 — Customers
 | Task ID | Task | Status |
 |---------|------|--------|
-| P3-T1 | Customer migration + model + factory | ⬜ TODO |
-| P3-T2 | CustomerRepository + Service | ⬜ TODO |
-| P3-T3 | CustomerController (CRUD) | ⬜ TODO |
-| P3-T4 | Customer → Invoice relationship | ⬜ TODO |
-| P3-T5 | PHPUnit: CRUD + relationship tests | ⬜ TODO |
+| P3-T1 | Customer migration + model + factory | ✅ DONE |
+| P3-T2 | CustomerRepository + Service | ✅ DONE |
+| P3-T3 | CustomerController (CRUD) | ✅ DONE |
+| P3-T4 | Customer → Invoice relationship | ✅ DONE |
+| P3-T5 | PHPUnit: CRUD + relationship tests | ✅ DONE |
 | P3-T6 | PR → CI green → merge | ⬜ TODO |
 
 #### P4 — Packages
@@ -148,6 +149,12 @@ _Detailed tasks will be added when backend phases complete._
 | 2026-05-25 | #20 | P2-T5 supplier create and update form requests completed | P2-T6 |
 | 2026-05-25 | #21 | P2-T6 supplier API resource completed | P2-T7 |
 | 2026-05-25 | #22 | P2-T7 supplier CRUD feature tests completed and backend checks passed | P2-T8 |
+| 2026-05-25 | #23 | P2-T8 supplier branch was pushed and local quality gates were green | P3-T1 |
+| 2026-05-25 | #24 | P3-T1 customer migration, model, factory, and model tests completed | P3-T2 |
+| 2026-05-25 | #25 | P3-T2 customer repository, service, binding, integration tests, and unit tests completed | P3-T3 |
+| 2026-05-25 | #26 | P3-T3 customer CRUD controller and protected routes completed | P3-T4 |
+| 2026-05-25 | #27 | P3-T4 deferred relationship implementation until invoice tables are introduced in P6 | P3-T5 |
+| 2026-05-25 | #28 | P3-T5 customer CRUD feature tests completed and backend checks passed | P3-T6 |
 
 ---
 
